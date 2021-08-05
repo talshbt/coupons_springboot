@@ -1,9 +1,18 @@
 package com.example.demo.beans;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Date;
 @Entity
-@Table(name="coupons")
+@Table(name="coupons")@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
+
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
