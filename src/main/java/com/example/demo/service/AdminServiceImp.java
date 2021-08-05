@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.beans.Company;
 import com.example.demo.beans.Customer;
+import com.example.demo.exceptions.CouponSystemException;
+import com.example.demo.exceptions.ErrMsg;
 
 import java.util.List;
 
@@ -9,6 +11,12 @@ public class AdminServiceImp extends ClientService implements AdminService{
 
     @Override
     public void addCompany(Company company) {
+        boolean isComanyExists = this.companyRepository.existsFindByName(company.getName());
+        if(isComanyExists){
+//            throw new CouponSystemException(ErrMsg.COMPANY_NAME_EXIST);
+
+        }
+        this.companyRepository.save(company);
 
     }
 
