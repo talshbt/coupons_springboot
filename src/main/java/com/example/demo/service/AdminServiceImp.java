@@ -10,14 +10,16 @@ import java.util.List;
 public class AdminServiceImp extends ClientService implements AdminService{
 
     @Override
-    public void addCompany(Company company) {
-        boolean isComanyExists = this.companyRepository.existsFindByName(company.getName());
-        if(isComanyExists){
-//            throw new CouponSystemException(ErrMsg.COMPANY_NAME_EXIST);
+    public void addCompany(Company company) throws CouponSystemException {
 
+        if(this.companyRepository.existsFindByName(company.getName())){
+           throw new CouponSystemException(ErrMsg.COMPANY_NAME_EXIST);
+        }
+
+        if(this.companyRepository.existsFindByEmail(company.getEmail())){
+            throw new CouponSystemException(ErrMsg.COMPANY_EMAIL_EXIST);
         }
         this.companyRepository.save(company);
-
     }
 
     @Override
