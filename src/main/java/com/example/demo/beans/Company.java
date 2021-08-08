@@ -1,16 +1,19 @@
 package com.example.demo.beans;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="companies")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Data
+
 public class Company {
 
     @Id
@@ -20,10 +23,9 @@ public class Company {
     private String email;
     private String password;
 
-    //cascade type = all (only on this direction)
-//    @OneToMany (cascade = CascadeType.ALL,orphanRemoval = true)
-//    @Singular
-//    List<Coupon> coupons;
+    @OneToMany
+    @Singular
+    private List<Coupon> coupons;
 
 
 }

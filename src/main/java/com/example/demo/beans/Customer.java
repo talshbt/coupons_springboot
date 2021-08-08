@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name="customers")
@@ -23,6 +26,6 @@ public class Customer {
     private String password;
 
     //cascade type = all (only on this direction)
-    @OneToMany
-    List<Coupon> coupons;
+    @ManyToMany
+    private List<Coupon> coupons;
 }

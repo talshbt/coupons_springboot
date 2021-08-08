@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -18,8 +19,7 @@ public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private Category category;
 
     @ManyToOne
