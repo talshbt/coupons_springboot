@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Date;
 @Entity
-@Table(name="coupons")@NoArgsConstructor
+@Table(name="coupons")
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
@@ -17,6 +18,8 @@ public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @ManyToOne

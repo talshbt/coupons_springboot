@@ -21,9 +21,9 @@ public class Company {
     private String password;
 
     //cascade type = all (only on this direction)
-    @OneToMany
-    @Singular
-    List<Coupon> coupons;
+//    @OneToMany (cascade = CascadeType.ALL,orphanRemoval = true)
+//    @Singular
+//    List<Coupon> coupons;
 
 
 }
