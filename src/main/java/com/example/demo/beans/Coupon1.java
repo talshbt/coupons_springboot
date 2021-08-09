@@ -31,7 +31,5 @@ public class Coupon1 {
     private int amount;
     private double price;
     private String image;
-//    private String name;
-//    private String email;
-//    private String password;
+
 }

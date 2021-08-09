@@ -35,7 +35,9 @@ public class Bootstrap implements CommandLineRunner {
 
         companyRepository.save(comp1);
         System.out.println(Art.INSERT);
-//
+        couponRepository.findAll().forEach(System.out::println);
+        companyRepository.findAll().forEach(System.out::println);
+
         Coupon1 coupon1 = Coupon1.builder().
                                 amount(100).
                                 company(companyRepository.getById(1)).
@@ -46,11 +48,16 @@ public class Bootstrap implements CommandLineRunner {
                                 startDate(Date.valueOf(LocalDate.now())).
                                 endDate(Date.valueOf(LocalDate.now().plusDays(5))).
                                 build();
-//
-//        System.out.println(companyRepository.getById(1));
+
         couponRepository.save(coupon1);
-//        customerRepository.findAll().forEach(u -> {
-//            System.out.println("user :" + u.getEmail());
-//        });
+        couponRepository.findAll().forEach(System.out::println);
+
+        System.out.println(Art.DELETE);
+        couponRepository.deleteById(1);
+
+        companyRepository.findAll().forEach(System.out::println);
+        couponRepository.findAll().forEach(System.out::println);
+
+
     }
 }
