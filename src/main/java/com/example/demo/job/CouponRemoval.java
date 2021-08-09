@@ -8,9 +8,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public class CouponRemoval {
     private final CouponRepository couponRepository;
-
-    @Scheduled(fixedRate = 1000*60*60*24)
-    public void execDailyEvent(){
-
-    }
+//
+//    @Scheduled(fixedRate = 1000*60*60*24)
+//    public void execDailyEvent(){
+//
+//    }
 }

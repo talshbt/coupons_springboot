@@ -27,5 +27,6 @@ public class Customer {
 
     //cascade type = all (only on this direction)
     @ManyToMany
-    private List<Coupon> coupons;
+    private List<Coupon1> coupons =  new ArrayList<>();
+    ;
 }

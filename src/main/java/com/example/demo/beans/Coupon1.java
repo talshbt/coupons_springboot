@@ -4,32 +4,34 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Date;
+
 @Entity
-@Table(name="coupons")
+@Table(name="coupons1")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-
-public class Coupon {
+public class Coupon1 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Enumerated(EnumType.ORDINAL)
-    private Category category;
+
+    @Enumerated(EnumType.STRING)
+    Category category;
 
     @ManyToOne
     private Company company;
     private String title;
-    private String desc;
+    private String description;
     private Date startDate;
     private Date endDate;
     private int amount;
     private double price;
     private String image;
-
+//    private String name;
+//    private String email;
+//    private String password;
 }

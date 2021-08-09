@@ -23,9 +23,10 @@ public class Company {
     private String email;
     private String password;
 
-    @OneToMany
+    @OneToMany (cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "company")
     @Singular
-    private List<Coupon> coupons;
+    @ToString.Exclude
+    private List<Coupon1> coupons = new ArrayList<>();
 
 
 }
