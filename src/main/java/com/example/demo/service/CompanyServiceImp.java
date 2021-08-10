@@ -44,7 +44,9 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
     }
 
     @Override
-    public Company getCompany(int companyId) {
-        return null;
+    public int getCompanyDetails(String email, String password) {
+        return 0;
     }
+
+
 }

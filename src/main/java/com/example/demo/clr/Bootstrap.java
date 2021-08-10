@@ -53,6 +53,7 @@ public class Bootstrap implements CommandLineRunner {
         couponRepository.findAll().forEach(System.out::println);
 
         System.out.println(Art.DELETE);
+        System.out.println("count " + couponRepository.count());
         couponRepository.deleteById(1);
 
         companyRepository.findAll().forEach(System.out::println);
