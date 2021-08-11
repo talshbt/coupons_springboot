@@ -78,7 +78,7 @@ public class AdminServiceImp extends ClientService implements AdminService{
 
     @Override
     public boolean login(String email, String password) {
-        return email.equals("admin@admin.com")&&password.equals("admin");
+        return email.equals("admin@admin.com") && password.equals("admin");
     }
 
     @Override

@@ -18,4 +18,5 @@ public interface CompanyService {
     List<Coupon1> getAllCouponsByMaxPrice(double price);
     Company getCompanyDetails(int companyId);
     void setCompanyId(int companyId);
+    int getIdByLoginDetails(String email, String password);
 }
