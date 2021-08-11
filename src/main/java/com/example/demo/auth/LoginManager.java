@@ -36,8 +36,6 @@ public class LoginManager {
             case ADMIN:
                 AdminService adminService = ctx.getBean(AdminService.class);
                 if(((AdminServiceImp)adminService).login(email, password)){
-                    int companyId = ((AdminServiceImp)adminService).getIdByLoginDetails(email, password);
-                    ((AdminServiceImp)adminService).setCustomerId(companyId);
                     return (ClientService)adminService;
                 }
 
