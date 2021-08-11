@@ -81,10 +81,7 @@ public class AdminServiceImp extends ClientService implements AdminService{
         return email.equals("admin@admin.com") && password.equals("admin");
     }
 
-    @Override
-    public int getIdByLoginDetails(String email, String password) {
-        return 0;
-    }
+
 
 
 }
