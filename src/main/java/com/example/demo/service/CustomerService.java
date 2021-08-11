@@ -13,5 +13,4 @@ public interface CustomerService {
     List<Coupon1> getAllCustomerCouponsByCategory(int customerId, Category category);
     List<Coupon1> getAllCustomerCouponsByPrice(int customerId, double price);
     Customer getCustomerDetails(int customerId);
-    void setCustomerId(int companyId);
 }

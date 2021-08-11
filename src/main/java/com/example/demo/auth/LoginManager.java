@@ -27,8 +27,8 @@ public class LoginManager {
             case CUSTOMER:
                 CustomerService customerService = ctx.getBean(CustomerService.class);
                 if(((CustomerServiceImp)customerService).login(email, password)){
-                    int companyId = ((CustomerServiceImp)customerService).getIdByLoginDetails(email, password);
-                    ((CustomerServiceImp)customerService).setCompanyId(companyId);
+                    int customerId = ((CustomerServiceImp)customerService).getIdByLoginDetails(email, password);
+                    ((CustomerServiceImp)customerService).setCustomerId(customerId);
                     return (ClientService)customerService;
                 }
 

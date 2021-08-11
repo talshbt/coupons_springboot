@@ -9,6 +9,7 @@ import com.example.demo.exceptions.CouponSystemException;
 import java.util.List;
 
 public interface CompanyService {
+
     void addCoupon(Coupon1 coupon) throws CouponSystemException;
     void updateCoupon(int couponId, Coupon1 coupon);
     void deleteCoupon(int couponId, Coupon1 coupon);

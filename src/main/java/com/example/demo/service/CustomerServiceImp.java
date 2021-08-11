@@ -7,7 +7,11 @@ import com.example.demo.beans.Customer;
 import java.util.List;
 
 public class CustomerServiceImp extends ClientService implements CustomerService{
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
+    int customerId;
     @Override
     public boolean login(String email, String password) {
         return false;
@@ -18,10 +22,7 @@ public class CustomerServiceImp extends ClientService implements CustomerService
         return 0;
     }
 
-    @Override
-    public void setCompanyId(int companyId) {
 
-    }
 
     @Override
     public void purchaseCoupon(int couponId) {
@@ -48,10 +49,7 @@ public class CustomerServiceImp extends ClientService implements CustomerService
         return null;
     }
 
-    @Override
-    public void setCustomerId(int companyId) {
 
-    }
 
 
 }

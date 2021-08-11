@@ -8,7 +8,11 @@ import com.example.demo.exceptions.ErrMsg;
 import java.util.List;
 
 public class AdminServiceImp extends ClientService implements AdminService{
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
 
+    private int companyId;
     @Override
     public void addCompany(Company company) throws CouponSystemException {
 
@@ -82,8 +86,5 @@ public class AdminServiceImp extends ClientService implements AdminService{
         return 0;
     }
 
-    @Override
-    public void setCompanyId(int companyId) {
 
-    }
 }
