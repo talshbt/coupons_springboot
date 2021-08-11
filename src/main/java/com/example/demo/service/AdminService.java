@@ -18,5 +18,5 @@ public interface AdminService {
     void deleteCustomer(int customerId, Customer customer);
     List<Customer> getAllCustomers();
     Customer getSingleCustomer(int customerId);
-
+    void setCustomerId(int companyId);
 }

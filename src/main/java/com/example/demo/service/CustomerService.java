@@ -13,5 +13,5 @@ public interface CustomerService {
     List<Coupon1> getAllCustomerCouponsByCategory(int customerId, Category category);
     List<Coupon1> getAllCustomerCouponsByPrice(int customerId, double price);
     Customer getCustomerDetails(int customerId);
-    boolean login(String email, String password);
+    void setCustomerId(int companyId);
 }

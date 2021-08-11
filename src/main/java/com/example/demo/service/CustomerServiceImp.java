@@ -14,6 +14,16 @@ public class CustomerServiceImp extends ClientService implements CustomerService
     }
 
     @Override
+    public int getIdByLoginDetails(String email, String password) {
+        return 0;
+    }
+
+    @Override
+    public void setCompanyId(int companyId) {
+
+    }
+
+    @Override
     public void purchaseCoupon(int couponId) {
 
     }
@@ -37,4 +47,11 @@ public class CustomerServiceImp extends ClientService implements CustomerService
     public Customer getCustomerDetails(int customerId) {
         return null;
     }
+
+    @Override
+    public void setCustomerId(int companyId) {
+
+    }
+
+
 }

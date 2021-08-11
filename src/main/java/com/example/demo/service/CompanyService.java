@@ -15,9 +15,6 @@ public interface CompanyService {
     List<Coupon1> getAllCoupons();
     List<Coupon1> getAllCouponsByCategory(Category category);
     List<Coupon1> getAllCouponsByMaxPrice(double price);
-    int getCompanyDetails(String email, String password);
-    boolean login(String email, String password);
-
-
-
+    Company getCompanyDetails(int companyId);
+    void setCompanyId(int companyId);
 }

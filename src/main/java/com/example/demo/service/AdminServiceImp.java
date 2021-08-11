@@ -68,7 +68,22 @@ public class AdminServiceImp extends ClientService implements AdminService{
     }
 
     @Override
+    public void setCustomerId(int companyId) {
+
+    }
+
+    @Override
     public boolean login(String email, String password) {
         return email.equals("admin@admin.com")&&password.equals("admin");
+    }
+
+    @Override
+    public int getIdByLoginDetails(String email, String password) {
+        return 0;
+    }
+
+    @Override
+    public void setCompanyId(int companyId) {
+
     }
 }

@@ -8,9 +8,20 @@ import com.example.demo.exceptions.CouponSystemException;
 import java.util.List;
 
 public class CompanyServiceImp extends ClientService implements CompanyService{
+
     @Override
     public boolean login(String email, String password) {
         return false;
+    }
+
+    @Override
+    public int getIdByLoginDetails(String email, String password) {
+        return 0;
+    }
+
+    @Override
+    public void setCompanyId(int companyId) {
+
     }
 
     @Override
@@ -44,9 +55,10 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
     }
 
     @Override
-    public int getCompanyDetails(String email, String password) {
-        return 0;
+    public Company getCompanyDetails(int companyId) {
+        return null;
     }
+
 
 
 }
