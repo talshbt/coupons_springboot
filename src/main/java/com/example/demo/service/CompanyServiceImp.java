@@ -11,7 +11,7 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
 
     @Override
     public boolean login(String email, String password) {
-        return false;
+        return companyRepository.existsFindByEmailAndPassword(email, password);
     }
 
     @Override
