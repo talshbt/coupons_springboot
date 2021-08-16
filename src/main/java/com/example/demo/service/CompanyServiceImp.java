@@ -4,6 +4,7 @@ import com.example.demo.beans.Category;
 import com.example.demo.beans.Company;
 import com.example.demo.beans.Coupon1;
 import com.example.demo.exceptions.CouponSystemException;
+import com.example.demo.exceptions.ErrMsg;
 
 import java.util.List;
 
@@ -55,8 +56,8 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
     }
 
     @Override
-    public Company getCompanyDetails(int companyId) {
-        return null;
+    public Company getCompanyDetails(int companyId) throws CouponSystemException {
+        return companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
     }
 
 

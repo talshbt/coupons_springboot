@@ -29,6 +29,7 @@ public class AdminServiceImp extends ClientService implements AdminService{
     @Override
     public void updateCompany(int companyId, Company company) {
 
+
     }
 
     @Override
