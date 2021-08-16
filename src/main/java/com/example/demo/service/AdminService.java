@@ -13,7 +13,7 @@ public interface AdminService {
     List<Company> getAllCompanies();
     Company getSingleCompany(int companyId) throws CouponSystemException;
 
-    void addCustomer(Customer customer);
+    void addCustomer(Customer customer) throws CouponSystemException;
     void updateCustomer(int customerId, Customer customer);
     void deleteCustomer(int customerId, Customer customer);
     List<Customer> getAllCustomers();

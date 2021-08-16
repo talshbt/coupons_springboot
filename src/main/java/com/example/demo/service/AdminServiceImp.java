@@ -32,8 +32,6 @@ public class AdminServiceImp extends ClientService implements AdminService{
         companyRepository.saveAndFlush(company);
     }
 
-
-
     @Override
     public void deleteCompany(Company company) throws CouponSystemException {
         companyRepository.findById(company.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
@@ -52,8 +50,11 @@ public class AdminServiceImp extends ClientService implements AdminService{
     }
 
     @Override
-    public void addCustomer(Customer customer) {
-
+    public void addCustomer(Customer customer) throws CouponSystemException {
+        if(this.customerRepository.existsFindByEmail(customer.getEmail())){
+            throw new CouponSystemException(ErrMsg.CUSTOMER_EMAIL_EXIST);
+        }
+        customerRepository.save(customer);
     }
 
     @Override
