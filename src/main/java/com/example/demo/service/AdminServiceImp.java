@@ -46,8 +46,9 @@ public class AdminServiceImp extends ClientService implements AdminService{
     }
 
     @Override
-    public Company getSingleCompany(int companyId) {
-        return null;
+    public Company getSingleCompany(int companyId) throws CouponSystemException {
+        companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
+        return companyRepository.findById(companyId).get();
     }
 
     @Override
