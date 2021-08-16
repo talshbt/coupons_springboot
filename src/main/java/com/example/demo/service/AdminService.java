@@ -17,6 +17,6 @@ public interface AdminService {
     void updateCustomer(Customer customer) throws CouponSystemException;
     void deleteCustomer(Customer customer) throws CouponSystemException;
     List<Customer> getAllCustomers();
-    Customer getSingleCustomer(int customerId);
+    Customer getSingleCustomer(int customerId) throws CouponSystemException;
     void setCustomerId(int companyId);
 }
