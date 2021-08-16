@@ -58,19 +58,21 @@ public class AdminServiceImp extends ClientService implements AdminService{
     }
 
     @Override
-    public void updateCustomer(int customerId, Customer customer) {
-
+    public void updateCustomer(Customer customer) throws CouponSystemException {
+        customerRepository.findById(customer.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.CUSTOMER_ID_NOT_EXIST));
+        customerRepository.saveAndFlush(customer);
     }
 
 
     @Override
-    public void deleteCustomer(int customerId, Customer customer) {
-
+    public void deleteCustomer(Customer customer) throws CouponSystemException {
+        customerRepository.findById(customer.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.CUSTOMER_ID_NOT_EXIST));
+        customerRepository.delete(customer);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return null;
+        return customerRepository.findAll();
     }
 
     @Override
