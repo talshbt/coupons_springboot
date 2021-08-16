@@ -42,7 +42,7 @@ public class AdminServiceImp extends ClientService implements AdminService{
 
     @Override
     public List<Company> getAllCompanies() {
-        return null;
+        return companyRepository.findAll();
     }
 
     @Override
