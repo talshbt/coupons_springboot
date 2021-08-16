@@ -35,8 +35,9 @@ public class AdminServiceImp extends ClientService implements AdminService{
 
 
     @Override
-    public void deleteCompany(int companyId, Company company) {
-
+    public void deleteCompany(Company company) throws CouponSystemException {
+        companyRepository.findById(company.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
+        companyRepository.delete(company);
     }
 
     @Override

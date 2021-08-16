@@ -9,7 +9,7 @@ import java.util.List;
 public interface AdminService {
     void addCompany(Company company) throws CouponSystemException;
     void updateCompany(Company company) throws CouponSystemException;
-    void deleteCompany(int companyId, Company company);
+    void deleteCompany(Company company) throws CouponSystemException;
     List<Company> getAllCompanies();
     Company getSingleCompany(int companyId);
 
