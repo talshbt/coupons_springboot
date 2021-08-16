@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @Component
 public class CouponRemoval {
@@ -14,8 +17,8 @@ public class CouponRemoval {
 
     @Scheduled(fixedRate = Sec10)
     public void execDailyEvent(){
-
-        System.out.println("**********job running*********");
-
+        System.out.println("Number of Coupons before delete = " + couponRepository.count());
+        couponRepository.deleteByEndDateBefore(Date.valueOf(LocalDate.now()));
+        System.out.println("Number of Coupons after delete = " + couponRepository.count());
     }
 }

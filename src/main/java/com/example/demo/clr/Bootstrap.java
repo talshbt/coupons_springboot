@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Date;
 import java.time.LocalDate;
 
-//@Component
+@Component
 @Order(1)
 @RequiredArgsConstructor
 public class Bootstrap implements CommandLineRunner {
@@ -53,9 +53,9 @@ public class Bootstrap implements CommandLineRunner {
         couponRepository.findAll().forEach(System.out::println);
 
         System.out.println(Art.DELETE);
-        System.out.println("count before delete" + couponRepository.count());
-        couponRepository.deleteById(1);
-        System.out.println("count after delete" + couponRepository.count());
+//        System.out.println("count before delete" + couponRepository.count());
+//        couponRepository.deleteById(1);
+//        System.out.println("count after delete" + couponRepository.count());
 
         companyRepository.findAll().forEach(System.out::println);
         couponRepository.findAll().forEach(System.out::println);
