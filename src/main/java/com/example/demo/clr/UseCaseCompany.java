@@ -2,27 +2,19 @@ package com.example.demo.clr;
 
 import com.example.demo.beans.Company;
 import com.example.demo.repos.CompanyRepository;
-import com.example.demo.repos.CouponRepository;
-import com.example.demo.repos.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-
-//@Component
-@RequiredArgsConstructor
+@Component
 @Order(1)
-public class UseCaseLogin implements CommandLineRunner {
-
-    private final CouponRepository couponRepository;
+@RequiredArgsConstructor
+public class UseCaseCompany  implements CommandLineRunner {
     private final CompanyRepository companyRepository;
-    private final CustomerRepository customerRepository;
+
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("hello");
-
-
         Company comp1 = Company.builder()
                 .name("Cola")
                 .email("cola@gmail.com")
@@ -30,8 +22,8 @@ public class UseCaseLogin implements CommandLineRunner {
                 .build();
 
         companyRepository.save(comp1);
+        System.out.println(companyRepository.findByEmailAndPassword("cola@gmail.com", "1234"));
 
-        System.out.println("check Cola Login "+ companyRepository.existsFindByEmailAndPassword("cola@gmail.com", "12"));
 
     }
 }

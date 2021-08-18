@@ -16,8 +16,13 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
     }
 
     @Override
-    public int getIdByLoginDetails(String email, String password) {
-        return 0;
+    public int getIdByLoginDetails(String email, String password) throws CouponSystemException {
+        if(companyRepository.existsFindByEmailAndPassword(email, password)){
+            throw new CouponSystemException(ErrMsg.COMPANY_DOES_NOT_EXIST);
+        }
+
+        return companyRepository.findByEmailAndPassword(email, password).getId();
+
     }
 
     @Override

@@ -15,10 +15,10 @@ public class CouponRemoval {
     private static final int DAY = 1000*60*60*24;
     private static final int Sec10 = 1000*10;
 
-    @Scheduled(fixedRate = Sec10)
+    @Scheduled(fixedRate = DAY)
     public void execDailyEvent(){
-        System.out.println("Number of Coupons before delete = " + couponRepository.count());
+//        System.out.println("Number of Coupons before delete = " + couponRepository.count());
         couponRepository.deleteByEndDateBefore(Date.valueOf(LocalDate.now()));
-        System.out.println("Number of Coupons after delete = " + couponRepository.count());
+//        System.out.println("Number of Coupons after delete = " + couponRepository.count());
     }
 }

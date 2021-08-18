@@ -18,5 +18,5 @@ public interface CompanyService {
     List<Coupon1> getAllCouponsByMaxPrice(double price);
     Company getCompanyDetails(int companyId) throws CouponSystemException;
     void setCompanyId(int companyId);
-    int getIdByLoginDetails(String email, String password);
+    int getIdByLoginDetails(String email, String password) throws CouponSystemException;
 }

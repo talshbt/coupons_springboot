@@ -19,7 +19,6 @@ public class AdminServiceImp extends ClientService implements AdminService{
         if(this.companyRepository.existsFindByName(company.getName())){
            throw new CouponSystemException(ErrMsg.COMPANY_NAME_EXIST);
         }
-
         if(this.companyRepository.existsFindByEmail(company.getEmail())){
             throw new CouponSystemException(ErrMsg.COMPANY_EMAIL_EXIST);
         }
