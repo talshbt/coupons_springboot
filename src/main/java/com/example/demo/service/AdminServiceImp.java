@@ -83,7 +83,7 @@ public class AdminServiceImp extends ClientService implements AdminService{
 
     @Override
     public void setCustomerId(int companyId) {
-
+        this.companyId = companyId;
     }
 
     @Override
