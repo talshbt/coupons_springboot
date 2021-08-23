@@ -32,12 +32,8 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
     public void addCoupon(Coupon1 coupon) throws CouponSystemException {
        if(couponRepository.existsByTitleAndCompanyId(coupon.getTitle(),coupon.getId())){
            throw new CouponSystemException(ErrMsg.COUPON_COMPANY_TITLE_EXISTS);
-
        }
-       Company company = companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
-       coupon.setCompany(company);
        couponRepository.save(coupon);
-
     }
 
     @Override
