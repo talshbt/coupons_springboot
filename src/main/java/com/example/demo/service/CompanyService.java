@@ -11,8 +11,8 @@ import java.util.List;
 public interface CompanyService {
 
     void addCoupon(Coupon1 coupon) throws CouponSystemException;
-    void updateCoupon(int couponId, Coupon1 coupon);
-    void deleteCoupon(int couponId, Coupon1 coupon);
+    void updateCoupon(Coupon1 coupon) throws CouponSystemException;
+    void deleteCoupon(Coupon1 coupon);
     List<Coupon1> getAllCoupons();
     List<Coupon1> getAllCouponsByCategory(Category category);
     List<Coupon1> getAllCouponsByMaxPrice(double price);

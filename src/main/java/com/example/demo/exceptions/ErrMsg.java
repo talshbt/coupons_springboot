@@ -6,8 +6,8 @@ public enum ErrMsg {
     COMPANY_ID_NOT_EXIST("company id does not exist"),
     CUSTOMER_EMAIL_EXIST("customer email already exist"),
     CUSTOMER_ID_NOT_EXIST("customer id does not exist"),
-    COMPANY_DOES_NOT_EXIST("company does not exist")
-            ;
+    COMPANY_DOES_NOT_EXIST("company does not exist"),
+    COUPON_COMPANY_TITLE_EXISTS("the coupon title exists in the company");
 
     public String getDesc() {
         return desc;

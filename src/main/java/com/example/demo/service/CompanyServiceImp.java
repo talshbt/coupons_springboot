@@ -9,6 +9,7 @@ import com.example.demo.exceptions.ErrMsg;
 import java.util.List;
 
 public class CompanyServiceImp extends ClientService implements CompanyService{
+    int companyId;
 
     @Override
     public boolean login(String email, String password) {
@@ -22,26 +23,31 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
         }
 
         return companyRepository.findByEmailAndPassword(email, password).getId();
-
     }
 
     @Override
-    public void setCompanyId(int companyId) {
-
-    }
+    public void setCompanyId(int companyId) { this.companyId = companyId; }
 
     @Override
     public void addCoupon(Coupon1 coupon) throws CouponSystemException {
+       if(couponRepository.existsByTitleAndCompanyId(coupon.getTitle(),coupon.getId())){
+           throw new CouponSystemException(ErrMsg.COUPON_COMPANY_TITLE_EXISTS);
+
+       }
+       Company company = companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
+       coupon.setCompany(company);
+       couponRepository.save(coupon);
 
     }
 
     @Override
-    public void updateCoupon(int couponId, Coupon1 coupon) {
+    public void updateCoupon(Coupon1 coupon) throws CouponSystemException {
+        Company company = companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
 
     }
 
     @Override
-    public void deleteCoupon(int couponId, Coupon1 coupon) {
+    public void deleteCoupon(Coupon1 coupon) {
 
     }
 
