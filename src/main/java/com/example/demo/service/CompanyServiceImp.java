@@ -38,35 +38,31 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
 
     @Override
     public void updateCoupon(Coupon1 coupon) throws CouponSystemException {
-        Company company = companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
-
+        couponRepository.findById(coupon.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.COUPON_ID_NOT_EXIST));
+        couponRepository.saveAndFlush(coupon);
     }
 
     @Override
-    public void deleteCoupon(Coupon1 coupon) {
-
+    public void deleteCoupon(Coupon1 coupon) throws CouponSystemException {
+        couponRepository.findById(coupon.getId()).orElseThrow(()-> new CouponSystemException(ErrMsg.COUPON_ID_NOT_EXIST));
+        couponRepository.delete(coupon);
     }
 
     @Override
-    public List<Coupon1> getAllCoupons() {
-        return null;
+    public List<Coupon1> getCompanyCoupons() { return couponRepository.findAll(); }
+
+    @Override
+    public List<Coupon1> getCompanyCoupons(Category category) {
+        return couponRepository.findByCompanyIdAndCategory(companyId, category);
     }
 
     @Override
-    public List<Coupon1> getAllCouponsByCategory(Category category) {
-        return null;
+    public List<Coupon1> getCompanyCoupons(double price) {
+        return couponRepository.findByCompanyIdAndPriceLessThan(companyId, price);
     }
-
-    @Override
-    public List<Coupon1> getAllCouponsByMaxPrice(double price) {
-        return null;
-    }
-
     @Override
     public Company getCompanyDetails(int companyId) throws CouponSystemException {
         return companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
     }
-
-
 
 }
