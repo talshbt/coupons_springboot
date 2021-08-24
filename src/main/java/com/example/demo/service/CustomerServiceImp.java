@@ -3,18 +3,18 @@ package com.example.demo.service;
 import com.example.demo.beans.Category;
 import com.example.demo.beans.Coupon1;
 import com.example.demo.beans.Customer;
+import com.example.demo.exceptions.CouponSystemException;
+import com.example.demo.exceptions.ErrMsg;
 
 import java.util.List;
 
 public class CustomerServiceImp extends ClientService implements CustomerService{
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
+    public void setCustomerId(int customerId) { this.customerId = customerId; }
 
     int customerId;
     @Override
     public boolean login(String email, String password) {
-        return false;
+        return customerRepository.existsFindByEmailAndPassword(email, password);
     }
 
     @Override
@@ -22,10 +22,11 @@ public class CustomerServiceImp extends ClientService implements CustomerService
         return 0;
     }
 
-
-
     @Override
-    public void purchaseCoupon(int couponId) {
+    public void purchaseCoupon(int couponId) throws CouponSystemException {
+        Coupon1 coup = couponRepository.findById(couponId).orElseThrow(()-> new CouponSystemException(ErrMsg.COUPON_ID_NOT_EXIST));
+
+
 
     }
 
