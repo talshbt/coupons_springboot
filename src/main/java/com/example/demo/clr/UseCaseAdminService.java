@@ -15,7 +15,8 @@ public class UseCaseAdminService implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("hello");
+        System.out.println("before add company");
+        System.out.println(adminService.getAllCompanies());
         Company comp1 = Company.builder()
                 .name("Cola")
                 .email("cola@gmail.com")
@@ -24,7 +25,8 @@ public class UseCaseAdminService implements CommandLineRunner {
 
 
         adminService.addCompany(comp1);
-
+        System.out.println("after add company");
+        System.out.println(adminService.getAllCompanies());
 
 
     }
