@@ -4,9 +4,12 @@ import com.example.demo.beans.Company;
 import com.example.demo.beans.Customer;
 import com.example.demo.exceptions.CouponSystemException;
 import com.example.demo.exceptions.ErrMsg;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class AdminServiceImp extends ClientService implements AdminService{
     public void setCompanyId(int companyId) {
         this.companyId = companyId;
