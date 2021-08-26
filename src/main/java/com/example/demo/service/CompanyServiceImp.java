@@ -16,8 +16,6 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
 
     @Override
     public boolean login(String email, String password) {
-        System.out.println("loginnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-        System.out.println(companyRepository.existsByEmailAndPassword(email, password));
         return companyRepository.existsByEmailAndPassword(email, password);
     }
 
@@ -31,7 +29,7 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
 
     @Override
     public void addCoupon(Coupon1 coupon) throws CouponSystemException {
-       if(couponRepository.existsByTitleAndCompanyId(coupon.getTitle(),coupon.getId())){
+       if(couponRepository.existsByTitleAndCompanyId(coupon.getTitle(),coupon.getCompany().getId())){
            throw new CouponSystemException(ErrMsg.COUPON_COMPANY_TITLE_EXISTS);
        }
        couponRepository.save(coupon);
@@ -62,7 +60,7 @@ public class CompanyServiceImp extends ClientService implements CompanyService{
         return couponRepository.findByCompanyIdAndPriceLessThan(companyId, price);
     }
     @Override
-    public Company getCompanyDetails(int companyId) throws CouponSystemException {
+    public Company getCompanyDetails() throws CouponSystemException {
         return companyRepository.findById(companyId).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
     }
 

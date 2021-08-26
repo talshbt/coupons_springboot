@@ -17,7 +17,7 @@ public interface CompanyService {
     List<Coupon1> getCompanyCoupons() throws SQLException;
     List<Coupon1> getCompanyCoupons(Category category) throws SQLException;
     List<Coupon1> getCompanyCoupons(double price)  throws SQLException;
-    Company getCompanyDetails(int companyId) throws CouponSystemException, SQLException;
+    Company getCompanyDetails() throws CouponSystemException, SQLException;
     void setCompanyId(int companyId);
     int getIdByLoginDetails(String email, String password) throws CouponSystemException, SQLException;
 }
