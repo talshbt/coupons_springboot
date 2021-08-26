@@ -5,23 +5,24 @@ import com.example.demo.beans.Company;
 import com.example.demo.beans.Coupon1;
 import com.example.demo.exceptions.CouponSystemException;
 import com.example.demo.exceptions.ErrMsg;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class CompanyServiceImp extends ClientService implements CompanyService{
     int companyId;
 
     @Override
     public boolean login(String email, String password) {
-        return companyRepository.existsFindByEmailAndPassword(email, password);
+        System.out.println("loginnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+        System.out.println(companyRepository.existsByEmailAndPassword(email, password));
+        return companyRepository.existsByEmailAndPassword(email, password);
     }
 
     @Override
     public int getIdByLoginDetails(String email, String password) throws CouponSystemException {
-        if(companyRepository.existsFindByEmailAndPassword(email, password)){
-            throw new CouponSystemException(ErrMsg.COMPANY_DOES_NOT_EXIST);
-        }
-
         return companyRepository.findByEmailAndPassword(email, password).getId();
     }
 

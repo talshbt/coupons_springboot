@@ -35,7 +35,7 @@ public class UseCaseLogin implements CommandLineRunner {
 
         companyRepository.save(comp1);
         Company company = companyRepository.findById(1).orElseThrow(()-> new CouponSystemException(ErrMsg.COMPANY_ID_NOT_EXIST));
-        System.out.println("check Cola Login "+ companyRepository.existsFindByEmailAndPassword("cola@gmail.com", "12"));
+        System.out.println("check Cola Login "+ companyRepository.existsByEmailAndPassword("cola@gmail.com", "12"));
         System.out.println("company"+ company);
 
 
