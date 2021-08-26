@@ -5,11 +5,14 @@ import com.example.demo.beans.Coupon1;
 import com.example.demo.beans.Customer;
 import com.example.demo.exceptions.CouponSystemException;
 import com.example.demo.exceptions.ErrMsg;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class CustomerServiceImp extends ClientService implements CustomerService{
     public void setCustomerId(int customerId) { this.customerId = customerId; }
 
