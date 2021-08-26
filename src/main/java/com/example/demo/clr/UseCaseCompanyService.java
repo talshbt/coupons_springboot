@@ -109,7 +109,7 @@ public class UseCaseCompanyService implements CommandLineRunner {
                 .title("cou4")
                 .description("cou4 sale")
                 .startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(10)))
+                .endDate(Date.valueOf(LocalDate.now()))
                 .amount(10)
                 .price(10)
                 .image("x")
@@ -122,13 +122,44 @@ public class UseCaseCompanyService implements CommandLineRunner {
                 .description("cou5 sale")
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plusDays(10)))
-                .amount(10)
+                .amount(0)
                 .price(2)
                 .image("x")
                 .build();
 
 
+        Coupon1 coupon6 = Coupon1.builder()
+                .company(comp3)
+                .category(Category.FOOD)
+                .title("cou6")
+                .description("cou6 sale")
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plusDays(10)))
+                .amount(3)
+                .price(2)
+                .image("x")
+                .build();
+
+        Coupon1 coupon7 = Coupon1.builder()
+                .company(comp3)
+                .category(Category.FOOD)
+                .title("cou7")
+                .description("cou7 sale")
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plusDays(10)))
+                .amount(3)
+                .price(11)
+                .image("x")
+                .build();
+
+
+
+
         companyService3.addCoupon(coupon4);
+        companyService3.addCoupon(coupon5);
+        companyService3.addCoupon(coupon6);
+        companyService3.addCoupon(coupon7);
+
         System.out.println("get by Category FOOD");
         companyService3.getCompanyCoupons(Category.FOOD).forEach(System.out::println);
 

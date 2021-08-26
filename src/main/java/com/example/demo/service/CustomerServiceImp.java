@@ -50,23 +50,23 @@ public class CustomerServiceImp extends ClientService implements CustomerService
     }
 
     @Override
-    public List<Coupon1> getCustomerCoupons(int customerId) throws CouponSystemException {
+    public List<Coupon1> getCustomerCoupons() throws CouponSystemException {
         customerRepository.findById(customerId).orElseThrow(()-> new CouponSystemException(ErrMsg.CUSTOMER_ID_NOT_EXIST));
         return couponRepository.findCustomerCoupons(customerId);
     }
 
     @Override
-    public List<Coupon1> getCustomerCoupons(int customerId, Category category) {
+    public List<Coupon1> getCustomerCoupons(Category category) {
         return couponRepository.findCustomerCouponsByCategory(customerId, category.ordinal());
     }
 
     @Override
-    public List<Coupon1> getCustomerCoupons(int customerId, double price) {
+    public List<Coupon1> getCustomerCoupons(double price) {
         return couponRepository.findCustomerCouponsByMaxPrice(customerId, price);
     }
 
     @Override
-    public Customer getCustomerDetails(int customerId) throws CouponSystemException {
+    public Customer getCustomerDetails() throws CouponSystemException {
         return customerRepository.findById(customerId).orElseThrow(() -> new CouponSystemException(ErrMsg.CUSTOMER_ID_NOT_EXIST));
     }
 }
